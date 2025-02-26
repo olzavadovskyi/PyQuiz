@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{% extends "qstable/base.html" %}
+
+{% block title %}
+Are You Ready?
+{% endblock %}
+
+{% block content %}
+<div class="quiz-box">
+    <h2>Are you ready to start the quiz?</h2>
+    <form method="get" action="{% url 'start_quiz' %}">
+        <button type="submit" class="btn">Yes, I'm Ready!</button>
+    </form>
+</div>
+{% endblock %}

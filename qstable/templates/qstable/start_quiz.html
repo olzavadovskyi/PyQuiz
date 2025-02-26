@@ -1,0 +1,35 @@
+{% extends "qstable/base.html" %}
+
+{% block title %}
+Start Quiz
+{% endblock %}
+
+{% block content %}
+<div class="quiz-box">
+    <h2>{{ question.text }}</h2>
+    <p>Correct Answers: {{ correct_answers }}</p>
+    {% if feedback %}
+        <!-- Show feedback -->
+        <div class="feedback">
+            <p>{{ feedback }}</p>
+            <a href="{% url 'start_quiz' %}" class="btn">Next Question</a>
+        </div>
+    {% else %}
+        <!-- Show question and choices -->
+        <form method="post">
+            {% csrf_token %}
+            <div class="choices">
+                {% for choice in choices %}
+                    <div class="choice">
+                        <label>
+                            <input type="radio" name="choice" value="{{ choice.id }}" required>
+                            {{ choice.text }}
+                        </label>
+                    </div>
+                {% endfor %}
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    {% endif %}
+</div>
+{% endblock %}

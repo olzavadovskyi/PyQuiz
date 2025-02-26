@@ -1,0 +1,29 @@
+{% extends "qstable/base.html" %}
+
+{% block title %}
+Leaderboard - PyQuiz
+{% endblock %}
+
+{% block content %}
+<div class="leaderboard-container">
+    <h1>Leaderboard</h1>
+    <table class="leaderboard-table">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>User</th>
+                <th>Correct Answers</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user_score in leaderboard %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ user_score.user.username }}</td>
+                    <td>{{ user_score.correct_answers }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

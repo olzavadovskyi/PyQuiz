@@ -1,0 +1,22 @@
+{% extends "qstable/base.html" %}
+
+{% block title %}
+Welcome to PyQuiz
+{% endblock %}
+
+{% block content %}
+<div class="main-content">
+    <h1>Let's Quiz</h1>
+    <p>Test your knowledge with these questions!</p>
+    <div class="button-group">
+    <a href="{% url 'start_quiz' %}" class="btn">Start Quiz</a>
+        <a href="{% url 'leaderboard' %}" class="btn">Leaderboard</a>
+    </div>
+    <div class="auth-links">
+        <p>
+            <a href="{% url 'login' %}">Login</a> |
+            <a href="{% url 'signup' %}">Sign Up</a>
+        </p>
+    </div>
+</div>
+{% endblock %}

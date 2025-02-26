@@ -1,0 +1,27 @@
+{% extends "qstable/base.html" %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    <h2>Login</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            <label for="username">Username</label>
+            <input type="text" name="username" required>
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input type="password" name="password" required>
+        </div>
+        <button type="submit">Login</button>
+    </form>
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+    <p>Don't have an account? <a href="{% url 'signup' %}">Sign up</a></p>
+</div>
+{% endblock %}
